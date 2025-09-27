@@ -1,4 +1,5 @@
-/* Reset */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,129 +7,81 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top left, #0d0d0d, #1c1c1c 50%, #0f0f0f);
-  color: #f5f5f5;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #1c1c1c, #2a2a2a, #111);
+  font-family: 'Poppins', sans-serif;
+  color: #f1f1f1;
   overflow: hidden;
 }
 
-/* Background effect */
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  opacity: 0.2;
-  z-index: 0;
+.container {
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
 }
 
-/* Glass card */
-.card {
+.brand h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.symbol {
+  color: #a29bfe;
+}
+
+.welcome-box, .letter {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
   padding: 2rem;
-  max-width: 600px;
-  text-align: center;
-  backdrop-filter: blur(12px);
-  z-index: 1;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.8s ease;
 }
 
-/* Hidden state */
-.hidden {
-  display: none;
-}
-
-/* Welcome Section */
-.welcome h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-  font-family: "Playfair Display", serif;
-}
-
-.intro {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  color: #bbb;
-}
-
-.input-box {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
 input {
-  padding: 0.7rem 1rem;
+  width: 70%;
+  padding: 0.8rem;
+  margin-top: 1rem;
   border: none;
   border-radius: 8px;
   outline: none;
   font-size: 1rem;
-  width: 60%;
 }
 
 button {
-  padding: 0.7rem 1.2rem;
-  background: linear-gradient(135deg, #7f5af0, #2ecc71);
-  color: white;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 8px;
+  background: #a29bfe;
+  color: #111;
+  font-weight: 500;
   cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: 0.3s;
 }
 
 button:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+  background: #6c5ce7;
+  color: #fff;
 }
 
-/* Letter Section */
-.greeting {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
-  margin-bottom: 1.2rem;
+.letter.hidden {
+  display: none;
 }
 
-.content {
-  line-height: 1.7;
-  font-size: 1.05rem;
-  margin-bottom: 2rem;
-  color: #ddd;
-}
-
-.signature {
-  font-family: "Playfair Display", serif;
+.letter-content p {
   font-size: 1.1rem;
-  margin-top: 1.5rem;
-  font-weight: bold;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  text-align: left;
 }
 
-.enter-btn {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.8rem 2rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.enter-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255, 118, 150, 0.4);
-}
-
-/* Fade animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
