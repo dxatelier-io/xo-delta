@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dxatelier △</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="welcome card" id="welcome">
+    <h1>△ dxatelier</h1>
+    <p class="intro">Enter your name to begin</p>
+    <div class="input-box">
+      <input type="text" id="nameInput" placeholder="Your name...">
+      <button onclick="showLetter()">Enter</button>
+    </div>
+  </div>
+
+  <div class="letter card hidden" id="letter">
+    <p id="personalGreeting" class="greeting"></p>
+    <p class="content">
+      Thank you for stopping by my page.  
+      Sometimes, life leaves us with wounds we can’t easily hide,  
+      and words are the only place where I find a way to heal.  
+      I hope you’ll feel a little less alone while you’re here,  
+      because even pain feels lighter when it’s shared.  
+    </p>
+    <p class="signature">Xo, Delta</p>
+    <a href="library.html" class="enter-btn">Enter dxatelier △</a>
+  </div>
+
+  <script>
+    function showLetter() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (name !== "") {
+        document.getElementById("personalGreeting").innerText = `Hello, ${name}!`;
+        document.getElementById("welcome").classList.add("hidden");
+        document.getElementById("letter").classList.remove("hidden");
+      }
+    }
+  </script>
+</body>
+</html>
