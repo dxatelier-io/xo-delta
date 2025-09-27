@@ -3,43 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dxatelier △</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>△ dxatelier</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Georgia", serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #0f0f0f);
+      color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 650px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    input {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      width: 80%;
+      text-align: center;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #8e44ad, #3498db);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #9b59b6, #2980b9);
+    }
+
+    .letter {
+      display: none;
+      text-align: left;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      margin-top: 20px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .signature {
+      margin-top: 25px;
+      font-style: italic;
+      text-align: right;
+      font-family: "Georgia", serif;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .enter-btn {
+      display: none;
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      background: linear-gradient(90deg, #16a085, #27ae60);
+    }
+  </style>
 </head>
 <body>
-  <div class="overlay"></div>
+  <div class="container">
+    <h1>△ Welcome to dxatelier</h1>
+    <input type="text" id="nameInput" placeholder="Enter your name...">
+    <br>
+    <button onclick="showLetter()">Open Letter</button>
 
-  <div class="welcome card" id="welcome">
-    <h1>△ dxatelier</h1>
-    <p class="intro">Enter your name to begin</p>
-    <div class="input-box">
-      <input type="text" id="nameInput" placeholder="Your name...">
-      <button onclick="showLetter()">Enter</button>
-    </div>
-  </div>
-
-  <div class="letter card hidden" id="letter">
-    <p id="personalGreeting" class="greeting"></p>
-    <p class="content">
-      Thank you for stopping by my page.  
-      Sometimes, life leaves us with wounds we can’t easily hide,  
-      and words are the only place where I find a way to heal.  
-      I hope you’ll feel a little less alone while you’re here,  
-      because even pain feels lighter when it’s shared.  
-    </p>
-    <p class="signature">Xo, Delta</p>
-    <a href="library.html" class="enter-btn">Enter dxatelier △</a>
+    <div id="letter" class="letter"></div>
+    <button id="enterBtn" class="enter-btn" onclick="location.href='folders.html'">Enter Library</button>
   </div>
 
   <script>
     function showLetter() {
-      const name = document.getElementById("nameInput").value.trim();
-      if (name !== "") {
-        document.getElementById("personalGreeting").innerText = `Hello, ${name}!`;
-        document.getElementById("welcome").classList.add("hidden");
-        document.getElementById("letter").classList.remove("hidden");
-      }
+      const name = document.getElementById("nameInput").value || "my dear friend";
+      const letterDiv = document.getElementById("letter");
+      letterDiv.style.display = "block";
+      letterDiv.innerHTML = `
+        <p>Hi, ${name}.</p>
+        <p>Thank you for stopping by. In a world that often feels too heavy, too rushed, and sometimes even too lonely, 
+        it means a lot to me that you’ve chosen to spend a moment here with my words. This small corner of the internet 
+        is more than just pages of storie, it’s a piece of me, stitched together with fragments of love, loss, 
+        and all the emotions in between.</p>
+
+        <p>I don’t know what you’re carrying with you today, but I hope that somewhere in these words, 
+        you’ll find something that resonates, something that reminds you you’re not alone, 
+        that your feelings are valid, and that even in silence, hearts can still speak to each other.</p>
+
+        <p>So take your time. Read slowly, or rush through. Return whenever you need to, or just once. 
+        This place will always stay open for you, quietly waiting, like an old friend.</p>
+
+        <div class="signature">Xo,<br>Delta</div>
+      `;
+      document.getElementById("enterBtn").style.display = "inline-block";
     }
   </script>
 </body>
