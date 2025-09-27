@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library | DX Atelier ∆</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="desktop">
+    <header>
+      <h1>My Library ∆</h1>
+      <nav>
+        <a href="about.html">About Author</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <div class="folders">
+      <!-- Example folders / books -->
+      <div class="folder" onclick="openBook('book1.html')">
+        <div class="icon">📂</div>
+        <span>Not With Silence, Please</span>
+      </div>
+      <div class="folder" onclick="openBook('book2.html')">
+        <div class="icon">📂</div>
+        <span>Am I Not Worthy?</span>
+      </div>
+      <div class="folder" onclick="openBook('book3.html')">
+        <div class="icon">📂</div>
+        <span>Autumn in April</span>
+      </div>
+      <!-- Bisa ditambah lagi -->
+    </div>
+  </div>
+
+  <script>
+    function openBook(file) {
+      window.location.href = file;
+    }
+  </script>
+</body>
+</html>
