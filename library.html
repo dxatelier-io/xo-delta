@@ -9,68 +9,80 @@
 </head>
 <body>
   <div class="screen">
-  <!-- Top Bar ala Mac -->
-  <div class="top-bar">
-    <div class="buttons">
-      <span class="red"></span>
-      <span class="yellow"></span>
-      <span class="green"></span>
+    <!-- Top Bar ala Mac -->
+    <div class="top-bar">
+      <div class="buttons">
+        <span class="red"></span>
+        <span class="yellow"></span>
+        <span class="green"></span>
+      </div>
+      <div class="title">Δ DX Atelier — Library</div>
+      <div class="clock" id="clock"></div>
     </div>
-    <div class="title">Δ DX Atelier — Library</div>
+
+    <!-- Desktop Area -->
+    <main class="desktop">
+      <div class="folder" onclick="openBook('Am I Not Worthy')">
+        📂 <p>Am I Not Worthy?</p>
+      </div>
+      <div class="folder" onclick="openBook('Autumn in April')">
+        📂 <p>Ten of April</p>
+      </div>
+      <div class="folder" onclick="openBook('Not With Silence, Please')">
+        📂 <p>Oh, Again?</p>
+      </div>
+    </main>
+
+    <!-- Dock -->
+    <div class="dock">
+      <a href="author.html" title="About Author">👤</a>
+      <a href="https://wa.me/6281387457611" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="mailto:dxatelier@email.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="tel:+12392663757" title="International Call">📞</a>
+
+      <!-- 🎵 Music button -->
+      <div class="music-menu">
+        <button id="musicBtn" title="Music">🎵</button>
+        <div class="music-dropdown" id="musicDropdown">
+          <a href="https://music.apple.com/playlist-link" target="_blank"> Apple Music</a>
+          <a href="https://open.spotify.com/playlist-link" target="_blank">Spotify 🎧</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Desktop Area -->
-  <main class="desktop">
-    <div class="folder" onclick="openBook('Am I Not Worthy')">
-      📂 <p>Am I Not Worthy?</p>
-    </div>
-    <div class="folder" onclick="openBook('Autumn in April')">
-      📂 <p>Ten of April</p>
-    </div>
-    <div class="folder" onclick="openBook('Not With Silence, Please')">
-      📂 <p>Oh, Again?</p>
-    </div>
-  </main>
-<!-- Dock -->
-<div class="dock">
-  <a href="author.html" title="About Author">👤</a>
-  <a href="https://wa.me/6281387457611" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-  <a href="mailto:dxatelier@email.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-  <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-  <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-  <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-  <a href="tel:+12392663757" title="International Call">📞</a>
-
-  <!-- 🎵 Music button -->
-  <div class="music-menu">
-    <button id="musicBtn" title="Music">🎵</button>
-    <div class="music-dropdown" id="musicDropdown">
-      <a href="https://music.apple.com/playlist-link" target="_blank"> Apple Music</a>
-      <a href="https://open.spotify.com/playlist-link" target="_blank">Spotify 🎧</a>
-    </div>
-  </div>
-</div>
   <script>
-  function openBook(bookName) {
-    alert("Opening: " + bookName);
-    // Kalau mau diarahkan ke halaman detail buku:
-    // window.location.href = `book.html?title=${encodeURIComponent(bookName)}`;
-  }
-
-  const musicBtn = document.getElementById("musicBtn");
-  const musicDropdown = document.getElementById("musicDropdown");
-
-  musicBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // biar klik tombol nggak langsung nutup dropdown
-    musicDropdown.classList.toggle("show");
-  });
-
-  // Tutup dropdown kalau klik di luar
-  document.addEventListener("click", (e) => {
-    if (!musicDropdown.contains(e.target) && !musicBtn.contains(e.target)) {
-      musicDropdown.classList.remove("show");
+    // Jam real-time
+    function updateClock() {
+      const clock = document.getElementById("clock");
+      const now = new Date();
+      clock.textContent = now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
     }
-  });
-</script>
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Folder alert
+    function openBook(bookName) {
+      alert("Opening: " + bookName);
+    }
+
+    // Dropdown music
+    const musicBtn = document.getElementById("musicBtn");
+    const musicDropdown = document.getElementById("musicDropdown");
+
+    musicBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      musicDropdown.classList.toggle("show");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!musicDropdown.contains(e.target) && !musicBtn.contains(e.target)) {
+        musicDropdown.classList.remove("show");
+      }
+    });
+  </script>
 </body>
 </html>
