@@ -158,19 +158,27 @@ body {
   to { width: 100%; }
 }
 
-/* Notification */
 .notification {
   display: none;
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #2c2c2e;
-  padding: 15px 20px;
-  border-radius: 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(44,44,46,0.95); /* sedikit transparan tapi gak blur */
+  padding: 20px 30px;
+  border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  z-index: 9999; /* biar selalu di atas */
+  transition: transform 0.2s ease;
 }
 
+.notification:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
 /* Letter Window */
 .letter-window {
   display: none;
