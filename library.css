@@ -140,7 +140,6 @@ body {
 
 /* Dropdown ala MacOS */
 .music-dropdown {
-  display: none;
   position: absolute;
   bottom: 45px;
   left: 50%;
@@ -151,30 +150,18 @@ body {
   min-width: 180px;
   text-align: left;
   padding: 6px 0;
-  z-index: 10;
-  opacity: 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
-  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+  z-index: 50;
 }
 
-/* Saat aktif */
 .music-dropdown.show {
-  display: block;
+  visibility: visible;
   opacity: 1;
   transform: translateX(-50%) translateY(0);
-}
-
-.music-dropdown a {
-  display: block;
-  padding: 10px 14px;
-  font-size: 14px;
-  color: #f1f1f1;
-  text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.music-dropdown a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffbd2e;
+  transition-delay: 0s;
 }
