@@ -179,7 +179,6 @@ body {
 .notification:hover {
   transform: translate(-50%, -50%) scale(1.05);
 }
-/* Letter Window */
 .letter-window {
   display: none;
   width: 800px;
@@ -189,6 +188,11 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
   overflow: hidden;
   flex-direction: column;
+  z-index: 10000; /* taro di atas overlay */
+  position: fixed; /* biar gak ngikut layout */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .title-bar {
