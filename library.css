@@ -8,7 +8,7 @@
 
 /* Screen wrapper */
 body {
-  background: #000; /* biar kayak bezel monitor */
+  background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@ body {
 .screen {
   width: 1440px;
   height: 900px;
-  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  background: radial-gradient(circle at top left, #202020, #0f0f0f);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@ body {
 .top-bar {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   height: 30px;
   background: #2b2b2b;
   padding: 0 15px;
@@ -44,7 +44,6 @@ body {
 .top-bar .buttons {
   display: flex;
   gap: 6px;
-  margin-right: 15px;
 }
 
 .top-bar .buttons span {
@@ -63,15 +62,21 @@ body {
   font-weight: 500;
 }
 
+.top-bar .clock {
+  color: #ddd;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
 /* Desktop Area */
 .desktop {
   flex: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;              /* jarak antar folder lebih rapat */
-  padding: 30px 50px;     /* padding area desktop lebih kecil */
-  justify-items: center;
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 60px;
+  justify-content: flex-start;
+  align-content: flex-start;
 }
 
 .folder {
@@ -79,12 +84,15 @@ body {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
-  width: 100px;           /* biar ukuran lebih konsisten */
+  transition: transform 0.2s ease, background 0.2s ease;
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .folder:hover {
   transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .folder p {
@@ -92,30 +100,31 @@ body {
   font-size: 13px;
   color: #eee;
   text-align: center;
-  word-wrap: break-word;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
 }
 
 /* Dock */
 .dock {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 25px;
   background: rgba(30, 30, 30, 0.7);
   backdrop-filter: blur(10px);
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-top: 1px solid #444;
+  position: relative;
 }
 
-.dock a {
-  font-size: 20px;
+.dock a, .music-menu button {
+  font-size: 22px;
   color: #fff;
   text-decoration: none;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), color 0.2s ease;
 }
 
-.dock a:hover {
-  transform: scale(1.3);
+.dock a:hover, .music-menu button:hover {
+  transform: scale(1.6);
   color: #ffbd2e;
 }
 
@@ -127,19 +136,12 @@ body {
 .music-menu button {
   background: none;
   border: none;
-  font-size: 20px;
   cursor: pointer;
-  color: #fff;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.music-menu button:hover {
-  transform: scale(1.3);
-  color: #ffbd2e;
 }
 
 /* Dropdown ala MacOS */
 .music-dropdown {
+  display: none;
   position: absolute;
   bottom: 45px;
   left: 50%;
@@ -150,18 +152,30 @@ body {
   min-width: 180px;
   text-align: left;
   padding: 6px 0;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-
-  visibility: hidden;
+  z-index: 10;
   opacity: 0;
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
-  z-index: 50;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
 }
 
+/* Saat aktif */
 .music-dropdown.show {
-  visibility: visible;
+  display: block;
   opacity: 1;
   transform: translateX(-50%) translateY(0);
-  transition-delay: 0s;
+}
+
+.music-dropdown a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.music-dropdown a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffbd2e;
 }
