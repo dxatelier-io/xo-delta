@@ -3,32 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DX Atelier ∆</title>
-  <link rel="stylesheet" href="style.css">
+  <title>DX Atelier — Login</title>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Brand Logo -->
-    <div class="brand">
-      <h1>DX Atelier <span class="symbol">∆</span></h1>
+  <div class="screen">
+    <!-- Login area -->
+    <div class="login-box">
+      <img src="https://via.placeholder.com/120" alt="DX Atelier" class="avatar">
+      <h2>DX Atelier</h2>
+      <input type="text" id="readerName" placeholder="Enter your name" onkeydown="handleEnter(event)">
+      <button onclick="showLetter()">→</button>
     </div>
 
-    <!-- Input Section -->
-    <div class="welcome-box" id="welcome-box">
-      <h2>Enter your name to begin</h2>
-      <input type="text" id="username" placeholder="Your name here...">
-      <button onclick="showLetter()">Enter</button>
-    </div>
-
-    <!-- Letter Section -->
-    <div class="letter hidden" id="letter">
-      <div class="letter-content">
-        <p id="personal-message"></p>
-        <button onclick="goLibrary()">Go to Library →</button>
-      </div>
+    <!-- Letter area (hidden by default) -->
+    <div class="letter hidden" id="letterBox">
+      <h3 id="greeting"></h3>
+      <p>
+        I’m truly grateful that you’re here.  
+        Every page you’ll find in this space carries fragments of unsaid words,  
+        feelings that I once hid in silence, now waiting to be discovered by you.  
+        May these stories keep you company when you need it most.  
+      </p>
+      <button onclick="goLibrary()">Go to Library</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function handleEnter(event) {
+      if (event.key === "Enter") {
+        showLetter();
+      }
+    }
+
+    function showLetter() {
+      const name = document.getElementById("readerName").value.trim();
+      if (!name) return alert("Please enter your name first!");
+      document.querySelector(".login-box").classList.add("hidden");
+      const greeting = document.getElementById("greeting");
+      greeting.textContent = `Welcome, ${name}.`;
+      document.getElementById("letterBox").classList.remove("hidden");
+    }
+
+    function goLibrary() {
+      window.location.href = "library.html";
+    }
+  </script>
 </body>
 </html>
