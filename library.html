@@ -31,7 +31,7 @@
       📂 <p>Oh, Again?</p>
     </div>
   </main>
-  <!-- Dock -->
+<!-- Dock -->
 <div class="dock">
   <a href="author.html" title="About Author">👤</a>
   <a href="https://wa.me/6281387457611" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
@@ -40,32 +40,33 @@
   <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
   <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
   <a href="tel:+12392663757" title="International Call">📞</a>
+
   <!-- 🎵 Music button -->
   <div class="music-menu">
     <button id="musicBtn" title="Music">🎵</button>
     <div class="music-dropdown" id="musicDropdown">
       <a href="https://music.apple.com/playlist-link" target="_blank"> Apple Music</a>
-      <a href="https://open.spotify.com/playlist-link" target="_blank">Spotify</a>
+      <a href="https://open.spotify.com/playlist-link" target="_blank">Spotify 🎧</a>
     </div>
   </div>
-  </div>
-
+</div>
   <script>
     function openBook(bookName) {
       alert("Opening: " + bookName);
       // bisa diarahkan ke halaman detail buku
       // window.location.href = `book.html?title=${encodeURIComponent(const musicBtn = document.getElementById("musicBtn");
+  const musicBtn = document.getElementById("musicBtn");
   const musicDropdown = document.getElementById("musicDropdown");
 
-  musicBtn.addEventListener("click", () => {
-    musicDropdown.style.display =
-      musicDropdown.style.display === "block" ? "none" : "block";
+  musicBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // biar klik tombol nggak langsung nutup dropdown
+    musicDropdown.classList.toggle("show");
   });
 
-  // tutup menu kalau klik di luar
+  // Tutup dropdown kalau klik di luar
   document.addEventListener("click", (e) => {
-    if (!musicBtn.contains(e.target) && !musicDropdown.contains(e.target)) {
-      musicDropdown.style.display = "none";
+    if (!musicDropdown.contains(e.target) && !musicBtn.contains(e.target)) {
+      musicDropdown.classList.remove("show");
     }
   });
 </script>
