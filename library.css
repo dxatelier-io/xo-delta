@@ -67,9 +67,9 @@ body {
 .desktop {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 40px;
-  padding: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;              /* jarak antar folder lebih rapat */
+  padding: 30px 50px;     /* padding area desktop lebih kecil */
   justify-items: center;
   align-items: start;
 }
