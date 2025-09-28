@@ -83,3 +83,7 @@ function updateClock() {
 // Update setiap detik
 setInterval(updateClock, 1000);
 updateClock(); // panggil pertama kali supaya langsung tampil
+
+function goToLibrary() {
+  window.location.href = "library.html";
+}
