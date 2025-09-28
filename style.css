@@ -79,6 +79,19 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
 .login-box h2 {
   margin-bottom: 20px;
   font-weight: 500;
