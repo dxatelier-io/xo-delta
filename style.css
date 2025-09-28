@@ -213,10 +213,11 @@ body {
 }
 
 .title-bar .buttons span {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   display: inline-block;
+  cursor: pointer;   /* jadi kelihatan bisa diklik */
 }
 
 .close { background: #ff5f57; }
