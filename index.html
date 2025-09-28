@@ -37,20 +37,19 @@
     <p>📩 New Message</p>
   </div>
 
-  <!-- Letter Window -->
   <div class="letter-window" id="letterWindow">
-    <div class="title-bar">
-      <div class="buttons">
-        <span class="close"></span>
-        <span class="minimize"></span>
-        <span class="fullscreen"></span>
-      </div>
-      <div class="title">Message</div>
+  <div class="title-bar">
+    <div class="buttons">
+      <span class="close" onclick="goToLibrary()"></span>
+      <span class="minimize"></span>
+      <span class="fullscreen"></span>
     </div>
-    <div class="content" id="letterContent">
-      <!-- JS will inject personalized message here -->
-    </div>
+    <div class="title">Message</div>
   </div>
+  <div class="content" id="letterContent">
+    <!-- isi surat di-inject JS -->
+  </div>
+</div>
 
   <script src="script.js"></script>
 </body>
