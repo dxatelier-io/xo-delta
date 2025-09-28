@@ -4,10 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DX Atelier — Login</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
   <div class="screen">
+    <!-- Clock -->
+    <div class="clock">
+      <div id="time">00:00</div>
+      <div id="date">Monday, January 1</div>
+    </div>
+
     <!-- Login area -->
     <div class="login-box" id="loginBox">
       <img src="https://via.placeholder.com/120" alt="DX Atelier" class="avatar">
@@ -48,6 +54,21 @@
     function goLibrary() {
       window.location.href = "library.html";
     }
+
+    // Clock function
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, "0");
+      const minutes = now.getMinutes().toString().padStart(2, "0");
+      document.getElementById("time").textContent = `${hours}:${minutes}`;
+
+      const options = { weekday: "long", month: "long", day: "numeric" };
+      const dateString = now.toLocaleDateString("en-US", options);
+      document.getElementById("date").textContent = dateString;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
   </script>
 </body>
 </html>
