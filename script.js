@@ -61,3 +61,25 @@ function handleEnter(event) {
     startLogin();
   }
 }
+
+// Clock
+function updateClock() {
+  const now = new Date();
+
+  // Jam & menit
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+
+  // Hari & tanggal
+  const options = { weekday: "long", month: "long", day: "numeric" };
+  const dateString = now.toLocaleDateString("en-US", options);
+
+  document.getElementById("time").textContent = `${hours}:${minutes}`;
+  document.getElementById("date").textContent = dateString;
+}
+
+// Update setiap detik
+setInterval(updateClock, 1000);
+updateClock(); // panggil pertama kali supaya langsung tampil
