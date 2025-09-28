@@ -24,55 +24,34 @@
   <button onclick="showLetter()">→</button>
 </div>
 
-    <!-- Letter area (hidden by default) -->
-    <div class="letter hidden" id="letterBox">
-      <h3 id="greeting"></h3>
-      <p>
-        I’m truly grateful that you’re here.  
-        Every page you’ll find in this space carries fragments of unsaid words,  
-        feelings that I once hid in silence, now waiting to be discovered by you.  
-        May these stories keep you company when you need it most.  
-      </p>
-      <button onclick="goLibrary()">Go to Library</button>
+   <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="logo">∆</div>
+    <div class="progress-bar">
+      <div class="progress"></div>
     </div>
   </div>
 
-  <script>
-    function handleEnter(event) {
-      if (event.key === "Enter") {
-        showLetter();
-      }
-    }
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <p>📩 New Message</p>
+  </div>
 
-    function showLetter() {
-      const name = document.getElementById("readerName").value.trim();
-      if (!name) return alert("Please enter your name first!");
-      document.getElementById("loginBox").classList.add("hidden");
-      const greeting = document.getElementById("greeting");
-      greeting.textContent = `Welcome, ${name}.`;
-      const letterBox = document.getElementById("letterBox");
-      letterBox.classList.remove("hidden");
-      letterBox.classList.add("fade-in");
-    }
+  <!-- Letter Window -->
+  <div class="letter-window" id="letterWindow">
+    <div class="title-bar">
+      <div class="buttons">
+        <span class="close"></span>
+        <span class="minimize"></span>
+        <span class="fullscreen"></span>
+      </div>
+      <div class="title">Message</div>
+    </div>
+    <div class="content" id="letterContent">
+      <!-- JS will inject personalized message here -->
+    </div>
+  </div>
 
-    function goLibrary() {
-      window.location.href = "library.html";
-    }
-
-    // Clock function
-    function updateClock() {
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, "0");
-      const minutes = now.getMinutes().toString().padStart(2, "0");
-      document.getElementById("time").textContent = `${hours}:${minutes}`;
-
-      const options = { weekday: "long", month: "long", day: "numeric" };
-      const dateString = now.toLocaleDateString("en-US", options);
-      document.getElementById("date").textContent = dateString;
-    }
-
-    setInterval(updateClock, 1000);
-    updateClock();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
