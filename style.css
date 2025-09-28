@@ -1,87 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap');
-
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Arial, sans-serif;
 }
 
 body {
-  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') 
+              no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #1c1c1c, #2a2a2a, #111);
-  font-family: 'Poppins', sans-serif;
-  color: #f1f1f1;
+  height: 100vh;
+  color: #fff;
   overflow: hidden;
 }
 
-.container {
+.screen {
   text-align: center;
-  max-width: 600px;
-  width: 90%;
 }
 
-.brand h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  letter-spacing: 1px;
+/* Login Box */
+.login-box {
+  background: rgba(0,0,0,0.35);
+  padding: 40px 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: inline-block;
 }
 
-.symbol {
-  color: #a29bfe;
+.login-box .avatar {
+  border-radius: 50%;
+  width: 120px;
+  margin-bottom: 15px;
 }
 
-.welcome-box, .letter {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.8s ease;
-}
-
-input {
-  width: 70%;
-  padding: 0.8rem;
-  margin-top: 1rem;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  font-size: 1rem;
-}
-
-button {
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: #a29bfe;
-  color: #111;
+.login-box h2 {
+  margin-bottom: 15px;
   font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
-button:hover {
-  background: #6c5ce7;
+.login-box input {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  outline: none;
+  font-size: 15px;
+}
+
+.login-box button {
+  background: #007aff;
   color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-.letter.hidden {
-  display: none;
+.login-box button:hover {
+  background: #005bb5;
 }
 
-.letter-content p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+/* Letter */
+.letter {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(0,0,0,0.4);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.letter h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.letter p {
+  margin-bottom: 20px;
   line-height: 1.6;
-  text-align: left;
+  color: #eee;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+.letter button {
+  background: #34c759;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.letter button:hover {
+  background: #28a745;
+}
+
+.hidden {
+  display: none;
 }
