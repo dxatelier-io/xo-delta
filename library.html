@@ -3,40 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library | DX Atelier ∆</title>
-  <link rel="stylesheet" href="style.css">
+  <title>DX Atelier — Library</title>
+  <link rel="stylesheet" href="css/library.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <div class="desktop">
-    <header>
-      <h1>My Library ∆</h1>
-      <nav>
-        <a href="about.html">About Author</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
-
-    <div class="folders">
-      <!-- Example folders / books -->
-      <div class="folder" onclick="openBook('book1.html')">
-        <div class="icon">📂</div>
-        <span>Not With Silence, Please</span>
-      </div>
-      <div class="folder" onclick="openBook('book2.html')">
-        <div class="icon">📂</div>
-        <span>Am I Not Worthy?</span>
-      </div>
-      <div class="folder" onclick="openBook('book3.html')">
-        <div class="icon">📂</div>
-        <span>Autumn in April</span>
-      </div>
-      <!-- Bisa ditambah lagi -->
+  <!-- Top Bar ala Mac -->
+  <div class="top-bar">
+    <div class="buttons">
+      <span class="red"></span>
+      <span class="yellow"></span>
+      <span class="green"></span>
     </div>
+    <div class="title">Δ DX Atelier — Library</div>
+  </div>
+
+  <!-- Desktop Area -->
+  <main class="desktop">
+    <div class="folder" onclick="openBook('Am I Not Worthy')">
+      📂 <p>Am I Not Worthy?</p>
+    </div>
+    <div class="folder" onclick="openBook('Autumn in April')">
+      📂 <p>Autumn in April</p>
+    </div>
+    <div class="folder" onclick="openBook('Not With Silence, Please')">
+      📂 <p>Not With Silence, Please</p>
+    </div>
+    <div class="folder" onclick="openBook('What Happens When I Stop?')">
+      📂 <p>What Happens When I Stop?</p>
+    </div>
+    <div class="folder" onclick="openBook('Coming Soon')">
+      📂 <p>Coming Soon…</p>
+    </div>
+  </main>
+
+  <!-- Dock -->
+  <div class="dock">
+    <a href="author.html" title="About Author">👤</a>
+    <a href="https://wa.me/628123456789" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="mailto:dxatelier@email.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+    <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    <a href="tel:+628123456789" title="International Call">📞</a>
   </div>
 
   <script>
-    function openBook(file) {
-      window.location.href = file;
+    function openBook(bookName) {
+      alert("Opening: " + bookName);
+      // bisa diarahkan ke halaman detail buku
+      // window.location.href = `book.html?title=${encodeURIComponent(bookName)}`
     }
   </script>
 </body>
