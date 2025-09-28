@@ -10,8 +10,7 @@ function showLetter() {
   const message = document.getElementById("personal-message");
 
   message.innerHTML = `
-    Dear <strong>${name}</strong>,<br><br>
-    Welcome to <em>DX Atelier ∆</em>.  
+    Dear <strong>${name}</strong>,<br><br>  
     Every book is a garden of feelings, and this one blooms only because you’ve decided to open it. May these words be a gentle hand on your shoulder, reminding you that you are seen, you are felt, and you are enough.  
     <br><br>
     With tenderness,<br>
