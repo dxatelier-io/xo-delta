@@ -12,11 +12,9 @@ function showLetter() {
   message.innerHTML = `
     Dear <strong>${name}</strong>,<br><br>
     Welcome to <em>DX Atelier ∆</em>.  
-    I’m truly grateful that you’re here, stepping into this little world of words I’ve built.  
-    May every page you turn remind you that your feelings matter, your story matters,  
-    and above all—<strong>you matter</strong>.  
+    Every book is a garden of feelings, and this one blooms only because you’ve decided to open it. May these words be a gentle hand on your shoulder, reminding you that you are seen, you are felt, and you are enough.  
     <br><br>
-    With warmth and sincerity,<br>
+    With tenderness,<br>
     The Author
   `;
 
