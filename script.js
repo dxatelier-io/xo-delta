@@ -87,3 +87,14 @@ updateClock(); // panggil pertama kali supaya langsung tampil
 function goToLibrary() {
   window.location.href = "library.html";
 }
+
+function minimizeLetter() {
+  const letter = document.getElementById("letterWindow");
+  letter.style.display = "none";
+  // Bisa ditambah tombol restore jika mau
+}
+
+function toggleFullscreen() {
+  const letter = document.getElementById("letterWindow");
+  letter.classList.toggle("fullscreen-mode");
+}
