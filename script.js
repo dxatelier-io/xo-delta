@@ -98,3 +98,10 @@ function toggleFullscreen() {
   const letter = document.getElementById("letterWindow");
   letter.classList.toggle("fullscreen-mode");
 }
+const letterWindow = document.getElementById("letterWindow");
+const fullscreenBtn = document.querySelector(".fullscreen");
+
+fullscreenBtn.addEventListener("click", () => {
+  letterWindow.classList.toggle("fullscreen-mode");
+});
+
