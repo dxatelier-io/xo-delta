@@ -217,12 +217,23 @@ body {
   height: 14px;
   border-radius: 50%;
   display: inline-block;
-  cursor: pointer;   /* jadi kelihatan bisa diklik */
+  cursor: pointer;
 }
 
 .close { background: #ff5f57; }
 .minimize { background: #ffbd2e; }
 .fullscreen { background: #28c940; }
+
+/* fullscreen mode */
+.fullscreen-mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  border-radius: 0;
+}
 
 .title-bar .title {
   font-size: 14px;
