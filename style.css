@@ -224,7 +224,6 @@ body {
 .minimize { background: #ffbd2e; }
 .fullscreen { background: #28c940; }
 
-/* fullscreen mode */
 .fullscreen-mode {
   position: fixed;
   top: 0;
@@ -233,6 +232,14 @@ body {
   height: 100%;
   z-index: 9999;
   border-radius: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.fullscreen-mode .content {
+  flex: 1;
+  padding: 60px; /* lebih luas untuk fullscreen */
+  overflow-y: auto; /* scroll jika konten panjang */
 }
 
 .title-bar .title {
