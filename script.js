@@ -67,14 +67,6 @@ function goToLibrary() {
   window.location.href = "library.html";
 }
 
-function minimizeLetter() {
-  letterWindow.style.display = "none";
-}
-
-function toggleFullscreen() {
-  letterWindow.classList.toggle("fullscreen-mode");
-}
-
 // ====== CLOCK ======
 function updateClock() {
   const now = new Date();
