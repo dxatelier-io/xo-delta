@@ -228,18 +228,21 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.8); /* buat fullscreen terasa fokus */
   z-index: 9999;
   border-radius: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .fullscreen-mode .content {
-  flex: 1;
-  padding: 60px; /* lebih luas untuk fullscreen */
-  overflow-y: auto; /* scroll jika konten panjang */
+  padding: 40px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
 }
 
 .title-bar .title {
